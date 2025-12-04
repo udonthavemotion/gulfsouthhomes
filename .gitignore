@@ -42,8 +42,9 @@ lerna-debug.log*
 ehthumbs.db
 Thumbs.db
 
-# Large video source files (originals in root)
-*.mp4
+# Large video source files (originals in root - NOT in public folder)
+/13*.mp4
+/14*.mp4
 
 # Documentation/research files (not needed for production)
 analysis
