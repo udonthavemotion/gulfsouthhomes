@@ -2,7 +2,31 @@ import React, { useEffect, useRef } from 'react';
 import { COMPANY_INFO, MOCK_HOMES, TESTIMONIALS } from '../constants';
 import Button from '../components/Button';
 import HomeCard from '../components/HomeCard';
-import { Award, Truck, Wrench, DollarSign, Map, ShieldCheck, Star, ArrowRight, Play, ChevronRight } from 'lucide-react';
+import {
+  Award,
+  Truck,
+  Wrench,
+  DollarSign,
+  Star,
+  ArrowRight,
+  ChevronRight,
+  Home as HomeIcon,
+  Building,
+  MapPin,
+  ShieldCheck,
+  Users,
+  Settings,
+  CheckCircle,
+  Phone,
+  Mail,
+  Clock,
+  DoorOpen,
+  Footprints,
+  Wind,
+  Droplets,
+  Zap,
+  LandPlot
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
@@ -35,15 +59,15 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      
-      {/* Hero Section - Cinematic */}
+
+      {/* 1. Hero Banner - Exact specification */}
       <section ref={heroRef} className="relative min-h-[calc(100svh-80px)] sm:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] sm:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            muted 
-            loop 
+          <video
+            autoPlay
+            muted
+            loop
             playsInline
             preload="metadata"
             className="w-full h-full object-cover"
@@ -57,88 +81,197 @@ const Home: React.FC = () => {
 
         <div className="relative z-10 container px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
-            {/* Main Headline */}
-            <h1 
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-6 animate-fade-in-up"
+            {/* Main Headline - EXACT from spec */}
+            <h1
+              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 animate-fade-in-up"
               style={{ animationDelay: '300ms' }}
             >
-              <span className="block">Delivered Fast.</span>
-              <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-primary to-emerald-400 bg-clip-text text-transparent">
-                Built to Last.
-              </span>
+              Manufactured & Modular Homes
+              <span className="block mt-2">in Southeast Louisiana</span>
             </h1>
 
-            {/* Subtitle */}
-            <p 
-              className="text-lg sm:text-xl md:text-2xl text-stone-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed animate-fade-in-up"
+            {/* Subheadline - EXACT from spec */}
+            <p
+              className="text-xl sm:text-2xl md:text-3xl text-stone-200 mb-10 font-semibold animate-fade-in-up"
               style={{ animationDelay: '500ms' }}
             >
-              Quality manufactured & modular homes for Louisiana families. 
-              Find your dream home today.
+              Fast Delivery • Full Setup • In-House Financing & Insurance
             </p>
 
-            {/* CTA Buttons */}
-            <div 
+            {/* CTA Buttons - EXACT from spec */}
+            <div
               className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
               style={{ animationDelay: '700ms' }}
             >
               <Button variant="primary" to="/catalog" size="lg">
-                Explore Our Homes
+                View Homes For Sale
                 <ArrowRight size={20} className="ml-2" />
               </Button>
               <Button variant="outline" to="/contact" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-                Schedule a Visit
+                Request a Call Back
               </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div 
-              className="mt-16 flex flex-wrap justify-center gap-8 text-stone-400 text-sm animate-fade-in"
-              style={{ animationDelay: '900ms' }}
-            >
-              <div className="flex items-center gap-2">
-                <ShieldCheck size={18} className="text-primary" />
-                <span>BBB Accredited</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award size={18} className="text-primary" />
-                <span>30+ Years Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Star size={18} className="text-primary" />
-                <span>Family Owned</span>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us - Modern Grid */}
-      <section className="py-20 sm:py-28 bg-white relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-stone-50 to-transparent pointer-events-none"></div>
-        
-        <div className="container relative">
+      {/* 2. Quick Inventory Links - 4 Large Buttons */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <Link
+              to="/single-wide"
+              className="group p-8 bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl border-2 border-blue-200 hover:border-blue-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <HomeIcon size={40} className="text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Single Wide Homes</h3>
+              <p className="text-stone-600 text-sm">Affordable & efficient</p>
+            </Link>
+
+            <Link
+              to="/double-wide"
+              className="group p-8 bg-gradient-to-br from-emerald-50 to-emerald-100 hover:from-emerald-100 hover:to-emerald-200 rounded-2xl border-2 border-emerald-200 hover:border-emerald-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <Building size={40} className="text-emerald-600 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Double Wide Homes</h3>
+              <p className="text-stone-600 text-sm">Spacious family living</p>
+            </Link>
+
+            <Link
+              to="/catalog?type=Modular"
+              className="group p-8 bg-gradient-to-br from-amber-50 to-amber-100 hover:from-amber-100 hover:to-amber-200 rounded-2xl border-2 border-amber-200 hover:border-amber-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <HomeIcon size={40} className="text-amber-600 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-stone-900 mb-2">Modular Homes</h3>
+              <p className="text-stone-600 text-sm">Premium construction</p>
+            </Link>
+
+            <Link
+              to="/catalog"
+              className="group p-8 bg-gradient-to-br from-violet-50 to-violet-100 hover:from-violet-100 hover:to-violet-200 rounded-2xl border-2 border-violet-200 hover:border-violet-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              <Award size={40} className="text-violet-600 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-bold text-stone-900 mb-2">View by Manufacturer</h3>
+              <p className="text-stone-600 text-sm">Champion, Franklin & more</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Featured Homes */}
+      <section className="py-20 sm:py-28 bg-stone-50">
+        <div className="container">
+          <div className="text-center mb-12 scroll-animate">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
+              Featured Homes
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-4">
+              Find Your Perfect Home
+            </h2>
+            <p className="text-stone-600 text-lg max-w-xl mx-auto">
+              Explore our most popular models, ready for delivery across Southeast Louisiana.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {featuredHomes.map((home, idx) => (
+              <div key={home.id} className="scroll-animate" style={{ transitionDelay: `${idx * 100}ms` }}>
+                <HomeCard home={home} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center scroll-animate">
+            <Button to="/catalog" size="lg">
+              View All Homes
+              <ArrowRight size={18} className="ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Current Deals & Programs */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="container">
+          <div className="text-center mb-12 scroll-animate">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
+              Special Offers
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-4">
+              Current Deals & Programs
+            </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Take advantage of our limited-time offers and special programs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-10">
+            {/* Deal 1 */}
+            <div className="scroll-animate group p-8 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl border-2 border-emerald-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300">
+              <div className="w-14 h-14 bg-emerald-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                <DollarSign size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">Free Slab or Free Utilities</h3>
+              <p className="text-stone-600">
+                Choose between a free concrete slab foundation or free utility hookup on select in-stock homes.
+              </p>
+            </div>
+
+            {/* Deal 2 */}
+            <div className="scroll-animate group p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl border-2 border-blue-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300" style={{ transitionDelay: '100ms' }}>
+              <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                <Truck size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">Free Site Prep on In-Stock Franklin Homes</h3>
+              <p className="text-stone-600">
+                Get free site preparation when you purchase an in-stock Franklin home model.
+              </p>
+            </div>
+
+            {/* Deal 3 */}
+            <div className="scroll-animate group p-8 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl border-2 border-amber-200 hover:border-amber-300 hover:shadow-xl transition-all duration-300" style={{ transitionDelay: '200ms' }}>
+              <div className="w-14 h-14 bg-amber-600 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                <ShieldCheck size={28} />
+              </div>
+              <h3 className="text-xl font-bold text-stone-900 mb-3">Restore Louisiana Grants Accepted</h3>
+              <p className="text-stone-600">
+                We accept all Restore Louisiana grants and help you through the entire application process.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center scroll-animate">
+            <Button to="/services" variant="outline" size="lg">
+              View All Deals
+              <ChevronRight size={18} className="ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Why Choose Us - EXACT 6 items from spec */}
+      <section className="py-20 sm:py-28 bg-stone-50">
+        <div className="container">
           <div className="text-center mb-16 scroll-animate">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
               Why Gulf South Homes
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-4">
-              More Than Just a Home Dealer
+              Why Choose Us
             </h2>
             <p className="text-stone-600 max-w-2xl mx-auto text-lg">
-              We're a family business built on trust, quality, and community. Here's what sets us apart.
+              We're more than just a dealer—we're your partner in homeownership.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {[
-              { icon: <Award size={28} />, title: "Family Owned", desc: "Local values & personal service since 1995", color: "bg-primary" },
-              { icon: <Truck size={28} />, title: "Delivery & Setup", desc: "Professional installation included with every home", color: "bg-blue-600" },
-              { icon: <DollarSign size={28} />, title: "Easy Financing", desc: "FHA, VA, USDA & conventional loans available", color: "bg-amber-600" },
-              { icon: <Wrench size={28} />, title: "Parts & Service", desc: "In-house support team for ongoing care", color: "bg-rose-600" },
-              { icon: <Map size={28} />, title: "Land & Home", desc: "Turnkey packages with land included", color: "bg-violet-600" },
-              { icon: <ShieldCheck size={28} />, title: "Top Brands", desc: "Champion, Sunshine, Franklin & more", color: "bg-cyan-600" },
+              { icon: <HomeIcon size={28} />, title: "Huge Stock Inventory", desc: "Largest selection in South Louisiana, ready for delivery", color: "bg-blue-600" },
+              { icon: <Wrench size={28} />, title: "On-Site Parts Department", desc: "Full-service parts store and repair team", color: "bg-emerald-600" },
+              { icon: <CheckCircle size={28} />, title: "One-Stop Shop: Permits, Setup, Delivery", desc: "We handle everything from permits to final setup", color: "bg-violet-600" },
+              { icon: <DollarSign size={28} />, title: "In-House Financing & Insurance", desc: "Easy approval with our in-house financing team", color: "bg-amber-600" },
+              { icon: <Users size={28} />, title: "Family-Owned & Local", desc: "Trusted Louisiana business since 1995", color: "bg-rose-600" },
+              { icon: <Settings size={28} />, title: "Custom Order Options", desc: "Customize your home to fit your needs", color: "bg-cyan-600" },
             ].map((feature, idx) => (
               <div
                 key={idx}
@@ -156,61 +289,53 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Homes */}
-      <section className="py-20 sm:py-28 bg-stone-50">
+      {/* 6. How It Works - 4 Steps */}
+      <section className="py-20 sm:py-28 bg-white">
         <div className="container">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6 scroll-animate">
-            <div>
-              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
-                Featured Models
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-3">
-                Popular Floor Plans
-              </h2>
-              <p className="text-stone-600 text-lg max-w-xl">
-                Explore our most-loved home designs, handpicked for Louisiana families.
-              </p>
-            </div>
-            <div className="hidden lg:flex items-center gap-3">
-              <Link
-                to="/catalog"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 text-white rounded-md font-semibold hover:bg-primary transition-colors group"
-              >
-                View All Homes
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                to="/double-wide"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-stone-300 text-stone-700 rounded-md font-semibold hover:border-primary hover:text-primary transition-colors group"
-              >
-                Explore Double-Wide Homes
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+          <div className="text-center mb-16 scroll-animate">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
+              The Process
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-stone-600 max-w-2xl mx-auto text-lg">
+              Four simple steps to your new home.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {featuredHomes.map((home, idx) => (
-              <div key={home.id} className="scroll-animate" style={{ transitionDelay: `${idx * 100}ms` }}>
-                <HomeCard home={home} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {[
+              { num: "01", icon: <HomeIcon size={32} />, title: "Choose Your Home", desc: "Browse our inventory and select the perfect floor plan" },
+              { num: "02", icon: <DollarSign size={32} />, title: "Purchase Options", desc: "Get pre-approved with our financing partners" },
+              { num: "03", icon: <LandPlot size={32} />, title: "Land & Permits", desc: "We handle site prep, permits, and all paperwork" },
+              { num: "04", icon: <Truck size={32} />, title: "Delivery & Setup", desc: "Professional delivery and complete installation" },
+            ].map((step, idx) => (
+              <div key={idx} className="scroll-animate text-center" style={{ transitionDelay: `${idx * 100}ms` }}>
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    {step.icon}
+                  </div>
+                  <div className="absolute -top-3 -right-3 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    {step.num}
+                  </div>
+                </div>
+                <h3 className="font-bold text-xl text-stone-900 mb-2">{step.title}</h3>
+                <p className="text-stone-600">{step.desc}</p>
               </div>
             ))}
           </div>
-          
-          <div className="mt-10 lg:hidden scroll-animate space-y-3">
-            <Button to="/catalog" fullWidth size="lg">
-              View All Homes
-              <ArrowRight size={18} className="ml-2" />
-            </Button>
-            <Button to="/double-wide" fullWidth size="lg" variant="outline" className="border-stone-300">
-              Explore Double-Wide Homes
+
+          <div className="text-center scroll-animate">
+            <Button to="/services" size="lg">
+              See Full Buying Process
               <ArrowRight size={18} className="ml-2" />
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Testimonials - Premium Design */}
+      {/* 7. Reviews Preview */}
       <section className="py-20 sm:py-28 bg-stone-900 relative overflow-hidden">
         <div className="container relative z-10">
           <div className="text-center mb-16 scroll-animate">
@@ -238,12 +363,12 @@ const Home: React.FC = () => {
                     <Star key={r} size={18} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                
+
                 {/* Quote */}
                 <p className="text-white/90 text-lg leading-relaxed mb-8 font-light">
                   "{t.text}"
                 </p>
-                
+
                 {/* Author */}
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">
@@ -260,46 +385,173 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section - Dramatic */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-emerald-700 to-teal-800"></div>
-
-        <div className="container relative z-10">
+      {/* 8. About Preview */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="container">
           <div className="max-w-4xl mx-auto text-center scroll-animate">
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              Ready to Find Your
-              <br />
-              <span className="text-emerald-200">Dream Home?</span>
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
+              Our Story
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-6">
+              Family-Owned Since 1995
             </h2>
-            <p className="text-xl text-emerald-100/90 mb-10 max-w-2xl mx-auto">
-              Visit our lot in Houma or give us a call. Our family is ready to help yours.
+            <p className="text-stone-600 text-lg leading-relaxed mb-8">
+              Gulf South Homes has been serving Southeast Louisiana families for over 30 years.
+              As a family-owned business, we understand the importance of finding the perfect home for your loved ones.
+              Our commitment to quality, service, and community has made us one of the most trusted manufactured and modular home dealers in the region.
+              From our family to yours, we're here to help you every step of the way.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary rounded-md font-bold text-lg shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Play size={18} className="text-primary ml-0.5" />
-                </span>
-                Call {COMPANY_INFO.phone}
-              </a>
-              <Button
-                variant="outline"
-                to="/contact"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary"
-              >
-                Get Directions
-                <ChevronRight size={18} className="ml-1" />
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button to="/about" size="lg">
+                About Us
+                <ArrowRight size={18} className="ml-2" />
+              </Button>
+              <Button to="/about#team" variant="outline" size="lg">
+                Meet the Team
+                <Users size={18} className="ml-2" />
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <p className="mt-10 text-emerald-200/70 text-sm">
-              📍 {COMPANY_INFO.address}
+      {/* 9. Parts Store Preview */}
+      <section className="py-20 sm:py-28 bg-stone-50">
+        <div className="container">
+          <div className="text-center mb-12 scroll-animate">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
+              Parts & Service
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-4">
+              On-Site Parts Store
+            </h2>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
+              Everything you need to maintain and upgrade your manufactured home.
             </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 mb-10">
+            {[
+              { icon: <DoorOpen size={32} />, label: "Doors", color: "from-blue-500 to-blue-600" },
+              { icon: <Footprints size={32} />, label: "Steps", color: "from-emerald-500 to-emerald-600" },
+              { icon: <HomeIcon size={32} />, label: "Skirting", color: "from-violet-500 to-violet-600" },
+              { icon: <Wind size={32} />, label: "Windows", color: "from-amber-500 to-amber-600" },
+              { icon: <Droplets size={32} />, label: "Plumbing", color: "from-cyan-500 to-cyan-600" },
+              { icon: <Zap size={32} />, label: "Electrical", color: "from-rose-500 to-rose-600" },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="scroll-animate group p-6 bg-white rounded-xl border border-stone-200 hover:border-stone-300 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center"
+                style={{ transitionDelay: `${idx * 50}ms` }}
+              >
+                <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-stone-900">{item.label}</h3>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center scroll-animate">
+            <Button to="/parts" size="lg">
+              Visit Parts Store
+              <ArrowRight size={18} className="ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Contact Form - Moved above footer */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12 scroll-animate">
+              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-md mb-4">
+                Get In Touch
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-stone-900 mb-4">
+                Ready to Get Started?
+              </h2>
+              <p className="text-stone-600 text-lg">
+                Fill out the form below and our team will get back to you within 24 hours.
+              </p>
+            </div>
+
+            <form className="scroll-animate bg-stone-50 rounded-2xl p-8 border border-stone-200">
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="fullName" className="block text-sm font-semibold text-stone-900 mb-2">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-stone-900 mb-2">
+                    Phone <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="(985) 123-4567"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-stone-900 mb-2">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="helpType" className="block text-sm font-semibold text-stone-900 mb-2">
+                    How Can We Help You? <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="helpType"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-stone-300 bg-white text-stone-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  >
+                    <option value="">Select an option...</option>
+                    <option value="viewing">Schedule a Home Viewing</option>
+                    <option value="financing">Financing Information</option>
+                    <option value="land-home">Land & Home Package</option>
+                    <option value="parts">Parts & Service</option>
+                    <option value="general">General Inquiry</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full px-6 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                >
+                  Submit
+                </button>
+
+                <p className="text-stone-500 text-sm text-center">
+                  Or call us directly at{' '}
+                  <a href={`tel:${COMPANY_INFO.phone}`} className="text-primary font-semibold hover:underline">
+                    {COMPANY_INFO.phone}
+                  </a>
+                </p>
+              </div>
+            </form>
           </div>
         </div>
       </section>

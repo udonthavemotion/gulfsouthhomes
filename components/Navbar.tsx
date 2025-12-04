@@ -67,12 +67,15 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Our Homes', path: '/catalog' },
-    { name: 'Single-Wide', path: '/single-wide' },
-    { name: 'Double-Wide', path: '/double-wide' },
-    { name: 'Land & Home', path: '/land-home' },
-    { name: 'Parts', path: '/parts' },
-    { name: 'Services', path: '/services' },
+    { name: 'Homes For Sale', path: '/catalog', sublinks: [
+      { name: 'Single Wide Homes', path: '/single-wide' },
+      { name: 'Double Wide Homes', path: '/double-wide' },
+      { name: 'Modular Homes', path: '/catalog?type=Modular' },
+      { name: 'View by Manufacturer', path: '/catalog' },
+    ]},
+    { name: 'Deals', path: '/deals' },
+    { name: 'Financing', path: '/financing' },
+    { name: 'Parts Store', path: '/parts' },
     { name: 'About', path: '/about' },
   ];
 

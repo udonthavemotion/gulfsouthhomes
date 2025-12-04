@@ -13,6 +13,9 @@ import LandHome from './pages/LandHome';
 import Parts from './pages/Parts';
 import DoubleWide from './pages/DoubleWide';
 import DoubleWideDetail from './pages/DoubleWideDetail';
+import Deals from './pages/Deals';
+import LARestore from './pages/LARestore';
+import Insurance from './pages/Insurance';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -38,11 +41,13 @@ const App: React.FC = () => {
             <Route path="/double-wide" element={<DoubleWide />} />
             <Route path="/double-wide/:id" element={<DoubleWideDetail />} />
             <Route path="/about" element={<About />} />
-            {/* Combine Services, Parts, Financing into one route wrapper or specific routes */}
             <Route path="/services" element={<Services />} />
             <Route path="/parts" element={<Parts />} />
             <Route path="/financing" element={<Services />} />
             <Route path="/land-home" element={<LandHome />} />
+            <Route path="/deals" element={<Deals />} />
+            <Route path="/la-restore" element={<LARestore />} />
+            <Route path="/insurance" element={<Insurance />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
