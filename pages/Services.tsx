@@ -40,14 +40,14 @@ const Services: React.FC = () => {
                 <Button variant="primary" to="/contact">Inquire About Land</Button>
             </div>
             <div className="order-1 md:order-2 h-80 bg-stone-200 rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://picsum.photos/id/10/800/600" alt="Land and nature" className="w-full h-full object-cover" />
+                <img src="/Modular Homes Page/Land and home packages/gulf-south-homes-LA-BELLE-MAISON-subdivision-map.jpg" alt="La Belle Maison Subdivision Map" className="w-full h-full object-cover" />
             </div>
         </div>
 
         {/* Financing */}
         <div id="financing" className="grid md:grid-cols-2 gap-12 items-center">
             <div className="h-80 bg-stone-200 rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://picsum.photos/id/44/800/600" alt="Financing paperwork" className="w-full h-full object-cover" />
+                <img src="/Modular Homes Page/Financing made simple/gulf-south-homes-content-01-901h.webp" alt="Financing made simple" className="w-full h-full object-cover" />
             </div>
             <div>
                 <div className="bg-amber-100 inline-flex p-3 rounded-full text-amber-600 mb-4">
@@ -92,7 +92,7 @@ const Services: React.FC = () => {
                 <Button variant="outline" to="/contact">Schedule Service</Button>
             </div>
             <div className="order-1 md:order-2 h-80 bg-stone-200 rounded-2xl overflow-hidden shadow-lg">
-                <img src="https://picsum.photos/id/250/800/600" alt="Tools and repair" className="w-full h-full object-cover" />
+                <img src="/Modular Homes Page/Financing made simple/gulf-south-homes-gallery-08-1920w.webp" alt="Parts & Service Department" className="w-full h-full object-cover" />
             </div>
         </div>
 
