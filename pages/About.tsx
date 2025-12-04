@@ -198,7 +198,7 @@ const About: React.FC = () => {
             preload="metadata"
             className="absolute inset-0 w-full h-full object-cover z-0"
           >
-            <source src="/assets/video/about-hero.mp4" type="video/mp4" />
+            <source src="/assets/images/Meet the team/about header.mp4" type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/80 via-stone-900/50 to-stone-900/90"></div>
