@@ -190,17 +190,16 @@ const About: React.FC = () => {
       {/* Hero Section - Enhanced */}
       <section className="relative w-full min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12 md:pb-20">
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
+          <video 
+            autoPlay 
+            muted 
+            loop 
             playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            preload="auto"
+            className="w-full h-full object-cover"
             aria-label="About page hero video"
           >
-            <source src="/about video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src="/assets/video/about-hero.mp4" type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/80 via-stone-900/50 to-stone-900/90"></div>
