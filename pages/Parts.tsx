@@ -117,7 +117,7 @@ const Parts: React.FC = () => {
     <div className="flex flex-col min-h-screen overflow-hidden">
 
       {/* Hero Section - Full Width Video */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-stone-900 overflow-hidden">
+      <section className="relative min-h-[calc(70svh-80px)] md:min-h-[calc(80vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video 

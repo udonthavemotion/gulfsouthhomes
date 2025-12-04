@@ -86,7 +86,7 @@ const DoubleWide: React.FC = () => {
   return (
     <div className="bg-stone-50 min-h-screen">
       {/* Hero Section - Cinematic */}
-      <section className="relative min-h-[85vh] flex items-center justify-center bg-stone-900 overflow-hidden">
+      <section className="relative min-h-[calc(85svh-80px)] md:min-h-[calc(85vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video

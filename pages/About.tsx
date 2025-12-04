@@ -188,7 +188,7 @@ const About: React.FC = () => {
     <div className="bg-stone-50 min-h-screen">
 
       {/* Hero Section - Enhanced */}
-      <section className="relative w-full h-[60vh] md:h-[75vh] flex items-center justify-center bg-stone-900 py-20">
+      <section className="relative w-full min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12 md:pb-20">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -197,14 +197,16 @@ const About: React.FC = () => {
             playsInline
             preload="metadata"
             className="absolute inset-0 w-full h-full object-cover z-0"
+            aria-label="About page hero video"
           >
             <source src="/assets/images/Meet the team/about header.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/80 via-stone-900/50 to-stone-900/90"></div>
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 md:px-8">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-full text-center px-4 md:px-8 py-8 md:py-12">
           {/* Enhanced headline - Fixed text cut-off */}
           <h1
             className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-[90%] mx-auto text-balance break-words mb-8 animate-fade-in-up"
@@ -213,7 +215,7 @@ const About: React.FC = () => {
             Building Homes,<br />Building Community
           </h1>
 
-          <p className="text-white text-lg mt-4 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+          <p className="text-white text-base sm:text-lg md:text-xl mt-4 max-w-2xl mx-auto px-4 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
             For over three decades, Gulf South Homes has been Southeast Louisiana's trusted partner in quality manufactured and modular housing.
           </p>
 

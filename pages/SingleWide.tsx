@@ -64,7 +64,7 @@ const SingleWide: React.FC = () => {
     <div className="bg-stone-50 min-h-screen">
 
       {/* Hero Section with Background Video */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-stone-900 overflow-hidden">
+      <section className="relative min-h-[calc(50svh-80px)] md:min-h-[calc(50vh-96px)] min-h-[400px] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video 
@@ -81,11 +81,11 @@ const SingleWide: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 container text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+        <div className="relative z-10 container text-center px-4 sm:px-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-4 px-2">
             Single-Wide Homes
           </h1>
-          <p className="text-lg sm:text-xl text-stone-200 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-stone-200 max-w-2xl mx-auto px-2">
             Compact, efficient, and fully customizable — designed for your lifestyle.
           </p>
         </div>

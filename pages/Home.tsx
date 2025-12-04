@@ -37,7 +37,7 @@ const Home: React.FC = () => {
     <div className="flex flex-col min-h-screen overflow-hidden">
       
       {/* Hero Section - Cinematic */}
-      <section ref={heroRef} className="relative min-h-[100svh] sm:min-h-[100vh] flex items-center justify-center bg-stone-900 overflow-hidden">
+      <section ref={heroRef} className="relative min-h-[calc(100svh-80px)] sm:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] sm:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
           <video 
