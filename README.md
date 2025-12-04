@@ -1,20 +1,64 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Gulf South Homes Inc.
 
-# Run and deploy your AI Studio app
+Modern website for Gulf South Homes Inc. - Louisiana's trusted manufactured and modular home dealer since 1995.
 
-This contains everything you need to run your app locally.
+## Tech Stack
 
-View your app in AI Studio: https://ai.studio/apps/drive/1P1OSruou9IU94ak5KtCYLdcxqoR0lcqD
+- **React 19** + **TypeScript**
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **React Router** - Client-side routing
 
-## Run Locally
+## Development
 
-**Prerequisites:**  Node.js
+```bash
+npm install
+npm run dev
+```
 
+## Build
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm run build
+npm run preview
+```
+
+## Deployment (Vercel)
+
+This project is configured for zero-config Vercel deployment:
+
+1. Connect this repo to Vercel
+2. Framework Preset: **Vite**
+3. Build Command: `npm run build`
+4. Output Directory: `dist`
+5. Install Command: `npm install`
+
+### Environment Variables
+
+None required for basic deployment.
+
+## Project Structure
+
+```
+├── components/     # Reusable UI components
+├── pages/          # Page components
+├── data/           # Home inventory data
+├── public/         # Static assets (images, videos)
+├── src/            # Global styles
+└── index.html      # Entry point
+```
+
+## Pages
+
+- `/` - Homepage with video hero
+- `/catalog` - All homes catalog with filters
+- `/single-wide` - Single-wide homes
+- `/land-home` - Land & Home packages
+- `/about` - About the company
+- `/services` - Parts & service info
+- `/contact` - Contact form
+- `/catalog/:id` - Individual home details
+
+## License
+
+Private - Gulf South Homes Inc.
