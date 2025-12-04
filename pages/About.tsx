@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { COMPANY_INFO } from '../constants';
 import { Shield, Users, Clock, Award, ChevronDown, Heart, MapPin, Phone, Star, Home as HomeIcon, CheckCircle2, Sparkles, ArrowRight } from 'lucide-react';
 import Button from '../components/Button';
@@ -18,33 +18,6 @@ interface FAQ {
 const About: React.FC = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<number | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Ensure video plays on mount and when ready
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const playVideo = () => {
-        video.play().catch((err) => {
-          console.warn('Video autoplay prevented, will retry:', err);
-        });
-      };
-
-      // Try to play immediately
-      playVideo();
-
-      // Also try when video is ready
-      video.addEventListener('loadeddata', playVideo);
-      video.addEventListener('canplay', playVideo);
-      video.addEventListener('canplaythrough', playVideo);
-
-      return () => {
-        video.removeEventListener('loadeddata', playVideo);
-        video.removeEventListener('canplay', playVideo);
-        video.removeEventListener('canplaythrough', playVideo);
-      };
-    }
-  }, []);
 
   // Scroll animation observer
   useEffect(() => {
@@ -215,39 +188,22 @@ const About: React.FC = () => {
     <div className="bg-stone-50 min-h-screen">
 
       {/* Hero Section - Enhanced */}
-      <section className="relative w-full min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12 md:pb-20">
+      <section className="relative w-full min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12 md:pb-20">
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <video 
-            ref={videoRef}
-            autoPlay 
-            muted 
-            loop 
+          <video
+            autoPlay
+            muted
+            loop
             playsInline
             preload="metadata"
             className="w-full h-full object-cover"
-            aria-label="About page hero video"
-            onLoadedData={() => {
-              // Ensure video plays after loading
-              if (videoRef.current) {
-                videoRef.current.play().catch((err) => {
-                  console.warn('Video autoplay prevented:', err);
-                });
-              }
-            }}
-            onCanPlay={() => {
-              // Ensure video plays when ready
-              if (videoRef.current) {
-                videoRef.current.play().catch((err) => {
-                  console.warn('Video autoplay prevented:', err);
-                });
-              }
-            }}
           >
-            <source src="/about page.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src="/about%20page.mp4" type="video/mp4" />
           </video>
-          {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/80 via-stone-900/50 to-stone-900/90"></div>
+          {/* Multi-layer gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/50 via-transparent to-stone-900/50"></div>
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-center min-h-full text-center px-4 md:px-8 py-8 md:py-12">
