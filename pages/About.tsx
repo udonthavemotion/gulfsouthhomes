@@ -197,12 +197,16 @@ const About: React.FC = () => {
               muted 
               loop 
               playsInline
-              preload="metadata"
+              preload="auto"
               className="w-full h-full object-cover"
               aria-label="About page hero video"
               onError={(e) => {
                 console.error('Video failed to load:', '/assets/video/about-hero.mp4', e);
                 setVideoError(true);
+              }}
+              onLoadedData={() => {
+                // Video loaded successfully
+                setVideoError(false);
               }}
             >
               <source src="/assets/video/about-hero.mp4" type="video/mp4" />

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MOCK_HOMES } from '../constants';
 import Button from '../components/Button';
+import ImageGallery from '../components/ImageGallery';
 import { Bed, Bath, Maximize, CheckCircle, ArrowLeft } from 'lucide-react';
 
 const HomeDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const home = MOCK_HOMES.find(h => h.id === id);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   if (!home) {
     return (
@@ -89,6 +92,41 @@ const HomeDetails: React.FC = () => {
                     </p>
                 </div>
 
+                {/* Photo Gallery */}
+                {home.gallery && home.gallery.length > 0 && (
+                  <div>
+                    <h2 className="text-2xl font-bold text-stone-900 mb-4">Photo Gallery</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                      {home.gallery.map((img, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => {
+                            setSelectedImageIndex(idx);
+                            setGalleryOpen(true);
+                          }}
+                          className="relative aspect-[4/3] overflow-hidden rounded-lg group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                          aria-label={`View ${home.name} image ${idx + 1} in gallery`}
+                        >
+                          <img
+                            src={img}
+                            alt={`${home.name} - Image ${idx + 1}`}
+                            width={600}
+                            height={450}
+                            decoding="async"
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            loading={idx < 6 ? "eager" : "lazy"}
+                            onError={(e) => {
+                              // Hide broken images
+                              (e.target as HTMLImageElement).style.display = 'none';
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors"></div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Features Grid */}
                 <div>
                     <h2 className="text-2xl font-bold text-stone-900 mb-4">Key Features</h2>
@@ -144,6 +182,17 @@ const HomeDetails: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Image Gallery Modal */}
+      {home.gallery && home.gallery.length > 0 && (
+        <ImageGallery
+          images={home.gallery}
+          homeModel={home.name}
+          isOpen={galleryOpen}
+          onClose={() => setGalleryOpen(false)}
+          initialIndex={selectedImageIndex}
+        />
+      )}
     </div>
   );
 };
