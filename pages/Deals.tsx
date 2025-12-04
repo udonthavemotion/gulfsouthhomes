@@ -43,7 +43,7 @@ const Deals: React.FC = () => {
             preload="metadata"
             className="w-full h-full object-cover"
           >
-            <source src="/deals%20header.mp4" type="video/mp4" />
+            <source src="/deals header.mp4" type="video/mp4" />
           </video>
           {/* Multi-layer gradient overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/90"></div>
