@@ -18,6 +18,7 @@ interface FAQ {
 const About: React.FC = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<number | null>(null);
+  const [videoError, setVideoError] = useState(false);
 
   // Scroll animation observer
   useEffect(() => {
@@ -190,17 +191,26 @@ const About: React.FC = () => {
       {/* Hero Section - Enhanced */}
       <section className="relative w-full min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12 md:pb-20">
         <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-            aria-label="About page hero video"
-          >
-            <source src="/assets/video/about-hero.mp4" type="video/mp4" />
-          </video>
+          {!videoError ? (
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover"
+              aria-label="About page hero video"
+              onError={(e) => {
+                console.error('Video failed to load:', '/assets/video/about-hero.mp4', e);
+                setVideoError(true);
+              }}
+            >
+              <source src="/assets/video/about-hero.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-stone-800 via-stone-900 to-stone-800"></div>
+          )}
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/80 via-stone-900/50 to-stone-900/90"></div>
         </div>
