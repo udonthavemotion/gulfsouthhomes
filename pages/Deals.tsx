@@ -41,7 +41,10 @@ const Deals: React.FC = () => {
             loop
             playsInline
             preload="metadata"
+            disablePictureInPicture
+            disableRemotePlayback
             className="w-full h-full object-cover"
+            style={{ willChange: 'auto' }}
           >
             <source src="/deals header.mp4" type="video/mp4" />
           </video>
