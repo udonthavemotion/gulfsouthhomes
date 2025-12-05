@@ -90,58 +90,48 @@ const Modular: React.FC = () => {
 
   return (
     <div className="bg-stone-50 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[calc(85svh-80px)] md:min-h-[calc(85vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/Modular Homes Page/modular home pics/gulf-south-homes-modular-homes-content-01-1920w.jpg"
-            alt="Modular Homes"
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/60 via-stone-900/40 to-stone-900/90"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/50 via-transparent to-stone-900/50"></div>
-        </div>
+      {/* Hero Section - Universal Responsive Pattern */}
+      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-stone-900">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/video/hero.mp4" type="video/mp4" />
+        </video>
 
-        {/* Floating decorative elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '2s' }}></div>
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Main Headline */}
-            <h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-6 animate-fade-in-up"
-              style={{ animationDelay: '300ms' }}
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto">
+          {/* Main Headline */}
+          <h1 className="font-bold text-white leading-tight text-4xl sm:text-5xl lg:text-6xl max-w-[900px] mx-auto break-words mb-6">
+            <span className="block">Modular Homes.</span>
+            <span className="block mt-2">Fully Customizable.</span>
+            <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-primary to-emerald-400 bg-clip-text text-transparent">
+              Built to Last.
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-white/90 text-base sm:text-lg lg:text-xl max-w-[700px] mx-auto mt-4 mb-8">
+            Complete flexibility and customization. Any floor plan can be built as a modular home and tailored to your exact preferences.
+          </p>
+
+          {/* CTA Button */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 justify-center">
+            <button
+              onClick={scrollToGrid}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-emerald-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
-              <span className="block">Modular Homes.</span>
-              <span className="block mt-2">Fully Customizable.</span>
-              <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-primary to-emerald-400 bg-clip-text text-transparent">
-                Built to Last.
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p
-              className="text-lg sm:text-xl md:text-2xl text-stone-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-up"
-              style={{ animationDelay: '500ms' }}
-            >
-              Complete flexibility and customization. Any floor plan can be built as a modular home and tailored to your exact preferences.
-            </p>
-
-            {/* CTA Button */}
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
-              style={{ animationDelay: '700ms' }}
-            >
-              <button
-                onClick={scrollToGrid}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-emerald-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 group text-base md:text-lg"
-              >
-                View Inventory
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-            </div>
+              View Inventory
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
           </div>
         </div>
       </section>
