@@ -48,38 +48,43 @@ const LandHome: React.FC = () => {
 
   return (
     <div className="bg-stone-50 min-h-screen">
-      {/* Hero Section with Background Video */}
-      <section className="relative min-h-[calc(60svh-80px)] md:min-h-[calc(60vh-96px)] min-h-[500px] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
+      {/* Hero Section - Universal Responsive Pattern */}
+      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-stone-900">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover opacity-50"
-          >
-            <source src="/assets/video/land-home-hero.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/50 to-stone-900/30"></div>
-        </div>
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/video/land-home-hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative z-10 container text-center px-4 sm:px-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-4 px-2">
+        <div className="relative z-10 w-full max-w-4xl mx-auto">
+          {/* Heading */}
+          <h1 className="font-bold text-white leading-tight text-4xl sm:text-5xl lg:text-6xl max-w-[900px] mx-auto break-words mb-6">
             Land & Home Packages
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-stone-200 max-w-2xl mx-auto mb-8 px-2">
+
+          {/* Subheading */}
+          <p className="text-white/90 text-base sm:text-lg lg:text-xl max-w-[700px] mx-auto mt-4 mb-8">
             Already have land? We'll help you place your dream home on it. Need land too? We can help with that.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" to="/contact" className="text-lg px-8 py-4">
+
+          {/* Button Row */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 justify-center">
+            <Button variant="primary" to="/contact" className="px-8 py-4">
               Start Your Project
             </Button>
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg font-semibold hover:bg-white hover:text-primary transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white rounded-lg font-semibold hover:bg-white hover:text-primary transition-all"
             >
               <Phone size={20} /> {COMPANY_INFO.phone}
             </a>

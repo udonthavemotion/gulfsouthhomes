@@ -116,89 +116,67 @@ const Parts: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
-      {/* Hero Section - Full Width Video */}
-      <section className="relative min-h-[calc(70svh-80px)] md:min-h-[calc(80vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
+      {/* Hero Section - Universal Responsive Pattern */}
+      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-stone-900">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-          >
-            <source src="/assets/images/parts store/hero headerpartstore.mp4" type="video/mp4" />
-          </video>
-          {/* Multi-layer gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/60 via-stone-900/40 to-stone-900/80"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/60 via-transparent to-stone-900/60"></div>
-        </div>
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/images/parts store/hero headerpartstore.mp4" type="video/mp4" />
+        </video>
 
-        {/* Floating decorative elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '2s' }}></div>
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
-        <div className="relative z-10 container px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white/90 text-sm font-medium mb-6 animate-fade-in"
-              style={{ animationDelay: '200ms' }}
-            >
-              <Wrench size={16} />
-              On-Site Parts Department
-            </div>
-
-            {/* Main Headline */}
-            <h1
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 animate-fade-in-up"
-              style={{ animationDelay: '300ms' }}
-            >
-              Everything You Need to
-              <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-primary to-emerald-400 bg-clip-text text-transparent">
-                Repair, Upgrade & Maintain
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p
-              className="text-lg sm:text-xl md:text-2xl text-stone-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-up"
-              style={{ animationDelay: '500ms' }}
-            >
-              Your one-stop shop for manufactured home parts and professional service in South Louisiana.
-            </p>
-
-            {/* CTA Buttons */}
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
-              style={{ animationDelay: '700ms' }}
-            >
-              <a
-                href={`tel:${COMPANY_INFO.phone}`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-glow hover:bg-primary-dark hover:shadow-glow-lg hover:-translate-y-0.5 transition-all duration-300"
-              >
-                <Phone size={20} />
-                Call {COMPANY_INFO.phone}
-              </a>
-              <Button
-                variant="white"
-                size="lg"
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Request Part Info
-              </Button>
-            </div>
-
-            {/* Hours */}
-            <p
-              className="mt-10 text-emerald-200/80 text-sm animate-fade-in"
-              style={{ animationDelay: '900ms' }}
-            >
-              <Clock size={16} className="inline mr-2" />
-              Mon-Fri 8am-5pm | Sat 9am-3pm
-            </p>
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white/90 text-sm font-medium mb-6">
+            <Wrench size={16} />
+            On-Site Parts Department
           </div>
+
+          {/* Main Headline */}
+          <h1 className="font-bold text-white leading-tight text-4xl sm:text-5xl lg:text-6xl max-w-[900px] mx-auto break-words mb-6">
+            Everything You Need to
+            <span className="block mt-2 bg-gradient-to-r from-emerald-300 via-primary to-emerald-400 bg-clip-text text-transparent">
+              Repair, Upgrade & Maintain
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-white/90 text-base sm:text-lg lg:text-xl max-w-[700px] mx-auto mt-4 mb-8">
+            Your one-stop shop for manufactured home parts and professional service in South Louisiana.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 justify-center">
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <Phone size={20} />
+              Call {COMPANY_INFO.phone}
+            </a>
+            <Button
+              variant="white"
+              size="lg"
+              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Request Part Info
+            </Button>
+          </div>
+
+          {/* Hours */}
+          <p className="mt-4 text-emerald-200/80 text-sm">
+            <Clock size={16} className="inline mr-2" />
+            Mon-Fri 8am-5pm | Sat 9am-3pm
+          </p>
         </div>
       </section>
 

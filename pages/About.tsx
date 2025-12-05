@@ -187,57 +187,48 @@ const About: React.FC = () => {
   return (
     <div className="bg-stone-50 min-h-screen">
 
-      {/* Hero Section - Enhanced */}
-      <section className="relative w-full min-h-[calc(100svh-80px)] md:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12 md:pb-20">
+      {/* Hero Section - Universal Responsive Pattern */}
+      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-stone-900">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-          >
-            <source src="/assets/video/about-hero.mp4" type="video/mp4" />
-          </video>
-          {/* Multi-layer gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/90"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/50 via-transparent to-stone-900/50"></div>
-        </div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/video/about-hero.mp4" type="video/mp4" />
+        </video>
 
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-full text-center px-4 md:px-8 py-8 md:py-12">
-          {/* Enhanced headline - Fixed text cut-off */}
-          <h1
-            className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-[90%] mx-auto text-balance break-words mb-8 animate-fade-in-up"
-            style={{ animationDelay: '300ms' }}
-          >
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto">
+          {/* Heading */}
+          <h1 className="font-bold text-white leading-tight text-4xl sm:text-5xl lg:text-6xl max-w-[900px] mx-auto break-words mb-6">
             Building Homes,<br />Building Community
           </h1>
 
-          <p className="text-white text-base sm:text-lg md:text-xl mt-4 max-w-2xl mx-auto px-4 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+          {/* Subheading */}
+          <p className="text-white/90 text-base sm:text-lg lg:text-xl max-w-[700px] mx-auto mt-4 mb-8">
             For over three decades, Gulf South Homes has been Southeast Louisiana's trusted partner in quality manufactured and modular housing.
           </p>
 
-          {/* Enhanced CTAs */}
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 animate-fade-in-up"
-            style={{ animationDelay: '700ms' }}
-          >
-            <Button variant="primary" to="/catalog" className="px-8 py-4 text-base shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-shadow">
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 justify-center">
+            <Button variant="primary" to="/catalog" className="px-8 py-4">
               Browse Our Homes
               <ArrowRight size={20} className="ml-2" />
             </Button>
-            <Button variant="outline" to="/contact" className="px-8 py-4 text-base border-white/30 text-white hover:bg-white/10 hover:border-white">
+            <Button variant="outline" to="/contact" className="px-8 py-4 border-white text-white hover:bg-white/10 hover:border-white">
               Schedule a Visit
             </Button>
           </div>
 
           {/* Trust indicators */}
-          <div
-            className="flex flex-wrap justify-center gap-6 md:gap-8 text-stone-400 text-sm mt-12 animate-fade-in"
-            style={{ animationDelay: '900ms' }}
-          >
+          <div className="flex flex-wrap justify-center gap-6 text-sm mt-8">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
                 <Shield size={16} className="text-primary" />

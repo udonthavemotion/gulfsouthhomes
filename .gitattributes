@@ -1,7 +1,6 @@
 # Git LFS configuration for large media files
 # This prevents GitHub warnings for files over 50MB
 # Files are automatically tracked by LFS when they exceed size limits
-
 # Track large video files with Git LFS
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text

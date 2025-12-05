@@ -32,31 +32,32 @@ const Manufacturers: React.FC = () => {
 
   return (
     <div className="bg-stone-50 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[400px] md:min-h-[calc(50vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] md:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
+      {/* Hero Section - Universal Responsive Pattern */}
+      <section className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-stone-900">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-          >
-            <source src="/assets/video/about-hero.mp4" type="video/mp4" />
-          </video>
-          {/* Multi-layer gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/90"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/50 via-transparent to-stone-900/50"></div>
-        </div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/video/about-hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative z-10 container text-center px-4 sm:px-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-4 leading-tight px-2">
+        <div className="relative z-10 w-full max-w-4xl mx-auto">
+          {/* Heading */}
+          <h1 className="font-bold text-white leading-tight text-4xl sm:text-5xl lg:text-6xl max-w-[900px] mx-auto break-words mb-6">
             Our Manufacturers
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-stone-200 max-w-3xl mx-auto px-2 leading-relaxed">
+
+          {/* Subheading */}
+          <p className="text-white/90 text-base sm:text-lg lg:text-xl max-w-[700px] mx-auto mt-4">
             We partner with the industry's leading manufacturers to bring you quality homes built to last. 
             Explore our trusted brands and find the perfect home for your family.
           </p>
