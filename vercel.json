@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/((?!.*\\.mp4$)(?!deals%20header\\.mp4$)(?!about%20page\\.mp4$).*)",
+      "source": "/((?!.*\\.mp4$).*)",
       "destination": "/index.html"
     }
   ],
