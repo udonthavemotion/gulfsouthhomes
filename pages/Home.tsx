@@ -60,59 +60,47 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
-      {/* 1. Hero Banner - Exact specification */}
-      <section ref={heroRef} className="relative min-h-[calc(100svh-80px)] sm:min-h-[calc(100vh-96px)] flex items-center justify-center bg-stone-900 overflow-hidden pt-[calc(80px+env(safe-area-inset-top))] sm:pt-[calc(96px+env(safe-area-inset-top))] pb-12">
+      {/* 1. Hero Banner - Universal Responsive Pattern */}
+      <section ref={heroRef} className="relative w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-stone-900">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-          >
-            <source src="/assets/video/deals-hero.mp4" type="video/mp4" />
-          </video>
-          {/* Multi-layer gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-stone-900/20 to-stone-900/90"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/50 via-transparent to-stone-900/50"></div>
-        </div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/video/mainhero.mp4" type="video/mp4" />
+        </video>
 
-        <div className="relative z-10 container px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Main Headline - EXACT from spec */}
-            <h1
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 animate-fade-in-up"
-              style={{ animationDelay: '300ms' }}
-            >
-              <span className="bg-gradient-to-r from-primary via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
-                Manufactured & Modular Homes
-              </span>
-              <span className="block mt-2 text-white">in Southeast Louisiana</span>
-            </h1>
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
-            {/* Subheadline - EXACT from spec */}
-            <p
-              className="text-xl sm:text-2xl md:text-3xl text-stone-200 mb-10 font-semibold animate-fade-in-up"
-              style={{ animationDelay: '500ms' }}
-            >
-              Fast Delivery • Full Setup • In-House Financing & Insurance
-            </p>
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto">
+          {/* Main Headline */}
+          <h1 className="font-bold text-white leading-tight text-4xl sm:text-5xl lg:text-6xl max-w-[900px] mx-auto break-words mb-6">
+            <span className="bg-gradient-to-r from-primary via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
+              Manufactured & Modular Homes
+            </span>
+            <span className="block mt-2">in Southeast Louisiana</span>
+          </h1>
 
-            {/* CTA Buttons - EXACT from spec */}
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
-              style={{ animationDelay: '700ms' }}
-            >
-              <Button variant="primary" to="/catalog" size="lg">
-                View Homes For Sale
-                <ArrowRight size={20} className="ml-2" />
-              </Button>
-              <Button variant="outline" to="/contact" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-                Request a Call Back
-              </Button>
-            </div>
+          {/* Subheadline */}
+          <p className="text-white/90 text-base sm:text-lg lg:text-xl max-w-[700px] mx-auto mt-4 mb-8">
+            Fast Delivery • Full Setup • In-House Financing & Insurance
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-8 justify-center">
+            <Button variant="primary" to="/catalog" size="lg">
+              View Homes For Sale
+              <ArrowRight size={20} className="ml-2" />
+            </Button>
+            <Button variant="outline" to="/contact" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              Request a Call Back
+            </Button>
           </div>
         </div>
       </section>
